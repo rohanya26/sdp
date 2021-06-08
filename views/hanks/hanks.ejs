@@ -1,0 +1,275 @@
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        /* body {
+            background-image: url(https://images.unsplash.com/photo-1547954575-855750c57bd3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fHByb2dyYW1taW5nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center top;
+            background-size: cover;
+        } */
+        /* BEGIN CARD DESIGN */
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background: linear-gradient(#ffffff, #8cd603);
+        }
+        
+        .hero {
+            display: -webkit-box;
+            position: relative;
+            width: 400px;
+            min-width: 400px;
+            height: 400px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.3);
+            margin: 15px;
+            padding-left: 0%;
+        }
+        
+        .hero-profile-img {
+            height: 70%;
+        }
+        
+        .hero-description-bk {
+            background-image: linear-gradient(0deg, #3f5efb, #fc466b);
+            border-radius: 30px;
+            position: absolute;
+            top: 55%;
+            left: -5px;
+            height: 65%;
+            width: 108%;
+            transform: skew(19deg, -9deg);
+        }
+        
+        .second .hero-description-bk {
+            background-image: linear-gradient(-20deg, #bb7413, #e7d25c)
+        }
+        
+        .hero-logo {
+            height: 80px;
+            width: 80px;
+            border-radius: 20px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 30%;
+            left: 30px;
+            overflow: hidden;
+            box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero-logo img {
+            height: 100%;
+        }
+        
+        .hero-description {
+            position: absolute;
+            color: #fff;
+            font-weight: 900;
+            left: 150px;
+            bottom: 26%;
+        }
+        
+        .hero-btn {
+            position: absolute;
+            color: #fff;
+            right: 30px;
+            bottom: 10%;
+            padding: 10px 20px;
+            border: 1px solid #fff;
+        }
+        
+        .hero-btn a {
+            color: #fff;
+        }
+        
+        .hero-date {
+            position: absolute;
+            color: #fff;
+            left: 30px;
+            bottom: 10%;
+        }
+        /* END CARD DESIGN */
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            background-color: #eee;
+            min-height: 100vh;
+        }
+        
+        .btn i:before {
+            width: 14px;
+            height: 14px;
+            position: fixed;
+            color: #fff;
+            background: #0077B5;
+            padding: 10px;
+            border-radius: 50%;
+            top: 5px;
+            right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Datahanks</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class=" nav navbar-nav navbar-right">
+                    <li><a href="/login">login</a></li>
+                    <li><a href="/register">signup</a></li>
+                    <li><a href="/logout">logout</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav> -->
+    <div class="">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand bharid" href="/"><span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>Datahanks</a>
+                </div>
+
+                <div class="collapse navbar-collapse">
+                    <ul class=" nav navbar-nav navbar-right">
+                        <li>
+                            <form action="/hanks" method="GET" class="form-inline">
+                                <div class="form-group">
+                                    <input type="text" name="search" placeholder="Search here..." class="form-control">
+                                    <input type="submit" value="search" class="btn btn-xs btn-hero">
+                                </div>
+
+                            </form>
+                        </li>
+                        <% if(!currentUser){ %>
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Signup</a></li>
+                            <% } else { %>
+                                <li> <a href="#">Currently Logged in as <%=currentUser.username
+                                %></a> </li>
+                                <li><a href="/logout">Logout</a></li>
+                                <% } %>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <% if (currentUser && currentUser.isAdmin) { %>
+            <H4 class="lll">You're an admin!!</H4>
+
+            <% } %>
+                <header style=" box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.3); background: linear-gradient(#ffffff, #d9e9bb);" class="jumbotron  ">
+                    <div class="container">
+
+                    </div>
+                    <h1> <span class="glyphicon glyphicon-hdd" aria-hidden="true"></span>Welcome To The Data Hanks</h1>
+
+                    <p>View our handpicked Study Materials from all over the Work.....!!!</p>
+                    <a class="btn btn-primary btn-large" href="/hanks/new">Add New Hanks</a>
+
+
+                </header>
+
+                <div class="d-flex align-items-stretch">
+                    <div class="row text-center " style="display: flex;flex-wrap: wrap; ">
+                        <% hanks.forEach(function(hank){ %>
+                            <div class="col-md-4 col-sm-6 ">
+
+
+                                <!-- <div class="btn">
+                                    <a href="https://www.linkedin.com/in/florin-cornea-b5118057/" target="_blank">
+                                      <i class="fab fa-linkedin"></i>
+                                    </a>
+                                  </div> -->
+                                <!--                                   
+                                  <div class="first hero">
+                                    <img class="hero-profile-img" src="https://cdn.gamer-network.net/2018/metabomb/leagueoflegendsbestcarrychampions2018pantheon.jpg" alt="">
+                                    <div class="hero-description-bk"></div>
+                                    <div class="hero-logo">
+                                      <img src="https://miscmedia-9gag-fun.9cache.com/images/thumbnail-facebook/1557291375.3948_Dy2yZu_n.jpg" alt="">
+                                    </div>
+                                    <div class="hero-description">
+                                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    </div>
+                                    <div  class="hero-date">
+                                      <p>20.02.2019</p>
+                                    </div>
+                                    <div class="hero-btn">
+                                      <a href="#">Learn More</a>
+                                    </div>
+                                  </div> -->
+
+                                <div class="first hero">
+                                    <img class="hero-profile-img" src="<%= hank.image %> " alt="">
+                                    <div class="hero-description-bk"></div>
+
+                                    <div class="hero-description">
+                                        <p>
+                                            <%= hank.name %>
+                                        </p>
+                                    </div>
+                                    <div class="hero-date">
+                                        <p>by-
+                                            <a href="/users/<%= hank.author.id %>">
+                                                <%=hank.author.username  %>
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="hero-btn">
+                                        <a href="/hanks/<%= hank._id%>">Learn More</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <%});%>
+                                <hr>
+                    </div>
+
+
+                </div>
+
+
+
+    </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</body>
+
+</html>
