@@ -22,9 +22,9 @@ var upload = multer({ storage: storage, fileFilter: imageFilter})
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
-  cloud_name: 'dgqsspuik', 
-  api_key: 769591237185812, 
-  api_secret: '2LbwQJITy-6ctacKqWLSqLJDAKw'
+  cloud_name: 'enter your cloud name', 
+  api_key: 'enter  your api_key', 
+  api_secret: 'enter your api_secret'
 });
 
 router.get("/hanks", function(req, res) {
