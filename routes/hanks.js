@@ -22,7 +22,7 @@ var upload = multer({ storage: storage, fileFilter: imageFilter})
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
-  cloud_name: 'enter your cloud name', 
+  cloud_name: 'dgqsspuik', 
   api_key: 'enter  your api_key', 
   api_secret: 'enter your api_secret'
 });
